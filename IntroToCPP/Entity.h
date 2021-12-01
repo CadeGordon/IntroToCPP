@@ -1,15 +1,17 @@
 #pragma once
 
+
 class Entity
 {
 public:
+    Entity();
     Entity(char icon, float health, float attackPower, float defensePower);
 
-    float getHealth();
-    float getAttackPower();
-    float getDefensePower();
+    float getHealth() { return m_health; }
+    float getAttackPower() { return m_attackPower; }
+    float getDefensePower() { return m_defensePower; }
 
-    float takeDamge(float damageAmount);
+    float takeDamage(float damageAmount);
     float attack(Entity entity);
 
 private:
