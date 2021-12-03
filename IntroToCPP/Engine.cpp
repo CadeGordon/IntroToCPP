@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include <iostream>
 
 bool Engine::m_applicationShouldClose = false;
 
@@ -26,7 +27,7 @@ void Engine::run()
 
 void Engine::start()
 {
-	Entity scoobyDoo = Entity('R', 50, 75, 100);
+	Entity scoobyDoo = Entity('S', 50, 75, 100);
 	Entity batMan = Entity('B', 55, 200000, 70);
 	Entity unclePhil = Entity('U', 1, 0, 69420);
 
@@ -53,7 +54,7 @@ void Engine::update()
 		m_currentFighterIndex++;
 	}
 
-	if ((m_currentFighter1->getHealth || m_currentFighter2->getHealth() <= 0) && m_currentFighterIndex >= m_entityCount)
+	if ((m_currentFighter1->getHealth() || m_currentFighter2->getHealth() <= 0) && m_currentFighterIndex >= m_entityCount)
 	{
 		m_applicationShouldClose = true;
 			return;
@@ -67,7 +68,10 @@ void Engine::update()
 
 void Engine::draw()
 {
-
+	m_currentFighter1->printStats();
+	m_currentFighter2->printStats();
+	system("pause");
+	system("cls");
 }
 
 void Engine::end()
