@@ -12,6 +12,13 @@ Engine::Engine()
 
 }
 
+Engine::~Engine()
+{
+	delete m_currentFighter1;
+	delete m_currentFighter2;
+	delete[] entites;
+}
+
 void Engine::run()
 {
 	start();
@@ -25,19 +32,27 @@ void Engine::run()
 	end();
 }
 
+void Engine::addScene(Scene* scene)
+{
+}
+
+Scene* Engine::getCurrentScene()
+{
+	return nullptr;
+}
+
+void Engine::setCurrentScene(int index)
+{
+}
+
 void Engine::start()
 {
-	Entity scoobyDoo = Entity('S', 50, 75, 100);
-	Entity batMan = Entity('B', 55, 200000, 70);
-	Entity unclePhil = Entity('U', 1, 0, 69420);
+	
 
-	m_entites[0] = scoobyDoo;
-	m_entites[1] = batMan;
-	m_entites[2] = unclePhil;
-	m_entityCount = 3;
+	
 
-	m_currentFighter1 = &m_entites[0];
-	m_currentFighter2 = &m_entites[1];
+	m_currentFighter1 = &m_entities[0];
+	m_currentFighter2 = &m_entities[1];
 	m_currentFighterIndex = 2;
 }
 
@@ -45,12 +60,12 @@ void Engine::update()
 {
 	if (m_currentFighter1->getHealth() <= 0 && m_currentFighterIndex < m_entityCount)
 	{
-		m_currentFighter1 = &m_entites[m_currentFighterIndex];
+		m_currentFighter1 = &m_entities[m_currentFighterIndex];
 		m_currentFighterIndex++;
 	}
 	if (m_currentFighter2->getHealth() <= 0 && m_currentFighterIndex < m_entityCount)
 	{
-		m_currentFighter2 = &m_entites[m_currentFighterIndex];
+		m_currentFighter2 = &m_entities[m_currentFighterIndex];
 		m_currentFighterIndex++;
 	}
 
