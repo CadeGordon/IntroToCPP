@@ -37,8 +37,10 @@ private:
 
 	int m_currentFighterIndex;
 	int m_entityCount;
+	
 
 	Scene** m_scenes;
 	int m_sceneCount;
+	int m_currentSceneIndex;
 
 };

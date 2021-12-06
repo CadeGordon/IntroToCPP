@@ -14,15 +14,6 @@ Scene::~Scene()
 
 void Scene::addActor(Actor* actor)
 {
-}
-
-bool Scene::getStarted()
-{
-	m_started = true;
-}
-
-void Scene::addActor(Actor* actor)
-{
 	Actor** tempArray = new Actor * [m_actorCount + 1];
 
 	for (int i = 0; i < m_actorCount; i++)
@@ -35,8 +26,13 @@ void Scene::addActor(Actor* actor)
 	m_actors = tempArray;
 
 	m_actorCount++;
-
 }
+
+bool Scene::getStarted()
+{
+	return m_started;
+}
+
 
 bool Scene::removeActor(Actor* actor)
 {
@@ -74,7 +70,7 @@ void Scene::start()
 
 void Scene::update()
 {
-	for (int i; i < m_actorCount; i++)
+	for (int i = 0; i < m_actorCount; i++)
 	{
 		if (!m_started)
 		{
