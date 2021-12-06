@@ -47,10 +47,6 @@ void Engine::setCurrentScene(int index)
 
 void Engine::start()
 {
-	
-
-	
-
 	m_currentFighter1 = &m_entities[0];
 	m_currentFighter2 = &m_entities[1];
 	m_currentFighterIndex = 2;

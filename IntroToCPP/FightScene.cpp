@@ -2,6 +2,8 @@
 #include "Engine.h"
 
 
+
+
 void FightScene::start()
 {
 	Entity scoobyDoo = Entity('S', 50, 75, 100);
